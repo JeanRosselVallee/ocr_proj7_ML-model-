@@ -38,7 +38,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        #pytest
+        chmod +x ./tests/run_unit_test.sh
+        ./tests/run_unit_test.sh
 
 # ToDo :
 # if pytest OK then pull & ssh restart service on remote server
