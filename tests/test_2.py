@@ -1,10 +1,8 @@
 import requests
 import json
 
-def test_prediction():    
+def predict(idict_features):    
 
-    # Inputs
-    dict_features = {"umap_x":[".3"],"umap_y":[".3"]}
     print("input features:", dict_features)
 
     # Send input data to prediction API
@@ -23,3 +21,7 @@ def test_prediction():
     # Compare predicted & expected values
     assert dict_predicted == dict_expected
 
+def test_prediction():    
+    # Inputs
+    dict_features = {"umap_x":[".3"],"umap_y":[".3"]}
+    dict_predicted = predict(dict_features)
