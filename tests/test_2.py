@@ -14,11 +14,11 @@ def test_prediction():
 
     # Output
     dict_expected = {"predictions":[1]}
-    print("output expected:", dict_features)
+    print("output expected:", dict_expected)
 
     # Get predicted value from API
     dict_predicted = json.loads(req_post.text)
-    print("output predicted:", dict_features)
+    print("output predicted:", dict_predicted)
 
     # Compare predicted & expected values
     assert dict_predicted == dict_expected
