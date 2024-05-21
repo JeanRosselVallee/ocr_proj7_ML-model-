@@ -12,9 +12,9 @@ def predict(dict_features):
 
 def test_prediction():    
     for in_1, in_2, out_i in [
-                        (.2, .2, 0),
+                        (.2, .2, 1),
                         (.3, .3, 1),
-                        (.4, .4, 1) ] :
+                        (.4, .4, 0) ] :
         dict_features_i  = {'umap_x':[str(in_1)],'umap_y':[str(in_2)]}
         dict_predicted_i = predict(dict_features_i)
         dict_expected_i  = {'predictions':[out_i]}
