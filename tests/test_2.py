@@ -1,16 +1,16 @@
 import requests
 import json
 
-def predict(dict_features):    
+def predict(dict_features):
     # Send input data to prediction API
-    req_post = requests.post(   url     = 'http://13.92.86.145:5678/invocations', 
-                                headers = {'Content-Type': 'application/json'}, 
+    req_post = requests.post(   url     = 'http://13.92.86.145:5678/invocations',
+                                headers = {'Content-Type': 'application/json'},
                                 data    = json.dumps({'inputs': dict_features}) )
     # Get predicted value from API
     dict_predicted = json.loads(req_post.text)
     return dict_predicted
 
-def test_prediction():    
+def test_prediction():
     for idx, (in_1, in_2, out_i) in enumerate([
                         (.2, .2, 1),
                         (.3, .3, 1),
@@ -25,4 +25,3 @@ def test_prediction():
 
         # Compare predicted & expected values
         assert dict_predicted_i == dict_expected_i
-
