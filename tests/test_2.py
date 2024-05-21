@@ -1,7 +1,7 @@
 import requests
 import json
 
-def predict(idict_features):    
+def predict(dict_features):    
 
     print("input features:", dict_features)
 
