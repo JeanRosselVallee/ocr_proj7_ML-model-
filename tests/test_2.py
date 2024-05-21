@@ -14,13 +14,13 @@ def test_prediction():
                         (.2, .2, 1),
                         (.3, .3, 1),
                         (.4, .4, 1) ] :
-        dict_features_i  = {'umap_x':[str(in_A)],'umap_y':[str(in_B)]}
-        dict_predicted_i = predict(dict_features)
+        dict_features_i  = {'umap_x':[str(in_1)],'umap_y':[str(in_2)]}
+        dict_predicted_i = predict(dict_features_i)
         dict_expected_i  = {'predictions':[out_i]}
-        print('input features  :', dict_features)
-        print('output predicted:', dict_predicted)
-        print('output expected :', dict_expected)
+        print('input features  :', dict_features_i)
+        print('output predicted:', dict_predicted_i)
+        print('output expected :', dict_expected_i)
 
         # Compare predicted & expected values
-        assert dict_predicted == dict_expected
+        assert dict_predicted_i == dict_expected_i
 
