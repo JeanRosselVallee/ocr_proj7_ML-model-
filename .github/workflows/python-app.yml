@@ -41,7 +41,9 @@ jobs:
         python -m pip install -r ./tests/requirements.txt        
     - name: Run unit tests
       run: |
-        python -m pytest --import-mode=append -vv ./tests/
+        python -m pytest --import-mode=append -rA ./tests/
+        # rAll prints success and failure tests outputs
+        
     #- name: Test with pytest
     #  run: |
         #pytest
