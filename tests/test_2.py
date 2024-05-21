@@ -1,7 +1,7 @@
 import requests
 import json
 
-def result():    
+def test_prediction():    
     dict_features = {"umap_x":[".3"],"umap_y":[".3"]}
     req_post = requests.post(   url     = 'http://localhost:5678/invocations', 
                                 headers = {'Content-Type': 'application/json'}, 
