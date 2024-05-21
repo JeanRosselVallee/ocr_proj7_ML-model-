@@ -8,6 +8,7 @@ def predict(dict_features):
                                 data    = json.dumps({'inputs': dict_features}) )
     # Get predicted value from API
     dict_predicted = json.loads(req_post.text)
+    return dict_predicted
 
 def test_prediction():    
     for in_1, in_2, out_i in [
