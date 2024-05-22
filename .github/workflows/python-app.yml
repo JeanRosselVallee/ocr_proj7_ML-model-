@@ -46,7 +46,9 @@ jobs:
     - name: Check Tests Exit Code
       run: |        
         # executed only if all tests succeeded
-        curl -d '{"dataframe_split": { "columns": ["umap_x","umap_y"], "data": [[-0.749079, 1.281123]]}}' -H 'Content-Type: application/json' -X POST 13.92.86.145:5678/invocations
+        curl -d '{"dataframe_split": { "columns": ["umap_x","umap_y"], "data": [[-0.749079, 1.281123]]}}' \
+        -H 'Content-Type: application/json' -X POST 13.92.86.145:5678/invocations \
+        --no-progress-meter # omit progress stats
     #- name: Test with pytest
     #  run: |
         #pytest
