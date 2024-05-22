@@ -41,8 +41,9 @@ jobs:
         python -m pip install -r ./tests/requirements.txt        
     - name: Run Unit Tests
       run: |
-        python -m pytest --import-mode=append -rA ./tests/
+        iRet = python -m pytest --import-mode=append -rA ./tests/
         # rAll prints success and failure tests outputs
+        echo ">>>>>>>>>>>>>>>>>> $iRet <<<<<<<<<<<<<<<<<<<<<"
         
     #- name: Test with pytest
     #  run: |
