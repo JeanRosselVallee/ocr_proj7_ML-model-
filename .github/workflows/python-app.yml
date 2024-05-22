@@ -41,16 +41,12 @@ jobs:
         python -m pip install -r ./tests/requirements.txt        
     - name: Run Unit Tests
       run: |
+        # pytest option rAll prints outputs of success and failure tests
         python -m pytest --import-mode=append -rA ./tests/
-        # rAll prints success and failure tests outputs
-        iRet=$?
-        echo "1 >>>>>>>>>>>>>>>>>> $iRet <<<<<<<<<<<<<<<<<<<<<"
     - name: Check Tests Exit Code
-      run: |
-        echo "2 >>>>>>>>>>>>>>>>>> $iRet <<<<<<<<<<<<<<<<<<<<<"        
-        # rAll prints success and failure tests outputs
-        iRet=$?
-        echo "3 >>>>>>>>>>>>>>>>>> $iRet <<<<<<<<<<<<<<<<<<<<<"        
+      run: |        
+        # executed only if all tests succeeded
+        curl -d '{"dataframe_split": { "columns": ["umap_x","umap_y"], "data": [[-0.749079, 1.281123]]}}' -H 'Content-Type: application/json' -X POST 13.92.86.145:5678/invocations
     #- name: Test with pytest
     #  run: |
         #pytest
