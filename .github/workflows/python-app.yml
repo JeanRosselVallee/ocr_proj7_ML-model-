@@ -43,19 +43,8 @@ jobs:
       run: |
         # pytest option rAll prints outputs of success and failure tests
         python -m pytest --import-mode=append -rA ./tests/
-    - name: Check Tests Exit Code
+    - name: Launch deployment on Production server
       run: |        
-        # executed only if all tests succeeded
-        curl -d '{"dataframe_split": { "columns": ["umap_x","umap_y"], "data": [[-0.749079, 1.281123]]}}' \
-        -H 'Content-Type: application/json' -X POST 13.92.86.145:5678/invocations \
-        --no-progress-meter # omit progress stats
-    #- name: Test with pytest
-    #  run: |
-        #pytest
-    #    chmod +x ./tests/run_unit_test.sh
-    #    ./tests/run_unit_test.sh
-
-# ToDo :
-# if pytest OK then pull & ssh restart service on remote server
-
-
+        # executed only if all Unit Tests succeeded
+        curl -X GET 13.92.86.145:6543/deploy/ \
+        --no-progress-meter # option to omit progress stats
