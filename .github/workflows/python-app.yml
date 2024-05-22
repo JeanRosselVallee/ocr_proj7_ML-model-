@@ -43,7 +43,7 @@ jobs:
       run: |
         python -m pytest --import-mode=append -rA ./tests/
         # rAll prints success and failure tests outputs
-        iRet = $?
+        iRet=$?
         echo ">>>>>>>>>>>>>>>>>> $iRet <<<<<<<<<<<<<<<<<<<<<"
         
     #- name: Test with pytest
